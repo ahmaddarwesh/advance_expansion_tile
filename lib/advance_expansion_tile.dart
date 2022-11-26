@@ -50,6 +50,7 @@ class AdvanceExpansionTile extends StatefulWidget {
       this.trailing,
       this.initiallyExpanded = false,
       this.maintainState = false,
+      this.dense = false,
       this.tilePadding,
       this.expandedCrossAxisAlignment,
       this.expandedAlignment,
@@ -124,6 +125,7 @@ class AdvanceExpansionTile extends StatefulWidget {
   /// collapsed and recreated upon expansion.
   final bool maintainState;
 
+  final bool dense;
   /// Specifies padding for the [ListTile].
   ///
   /// Analogous to [ListTile.contentPadding], this property defines the insets for
@@ -363,6 +365,7 @@ class AdvanceExpansionTileState extends State<AdvanceExpansionTile>
             iconColor: _iconColor.value,
             textColor: _headerColor.value,
             child: ListTile(
+              dense: widget.dense,
               onTap: !widget.disabled ? _handleTap : null,
               contentPadding: widget.tilePadding,
               leading: widget.leading ?? _buildLeadingIcon(context),
